@@ -11,7 +11,7 @@ graph = StateGraph(SousState)
 
 graph.add_node("router", router_node)
 
-graph.set_entry_point("router")
+graph.add_conditional_edges(START, route_by_image, {"has_photo": "router", "no_photo": "router"})
 graph.set_finish_point("router")
 
 app_graph = graph.compile()
