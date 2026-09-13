@@ -4,8 +4,11 @@ from app.graph.nodes import router_node
 
 def route_by_image(state: SousState) -> str:
     if state.get("image"):
+        print("Image found in stateℹ️:", state["image"])
         return "has_photo"
+    print("No image found in stateℹ️:", state)
     return "no_photo"
+
 
 graph = StateGraph(SousState)
 
